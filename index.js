@@ -16,7 +16,7 @@ const {
 const recorder = require('./lib/recorder')
 const { Scope, load, loadDefs, define } = require('./lib/scope')
 
-module.exports = (...args) => new Scope(...args)
+module.exports = (basePath, options) => new Scope(basePath, options)
 
 Object.assign(module.exports, {
   activate,
