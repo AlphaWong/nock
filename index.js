@@ -27,7 +27,13 @@ Object.assign(module.exports, {
   removeInterceptor,
   disableNetConnect,
   enableNetConnect,
-  cleanAll,
+  // TODO-12.x Historically cleanAll() has returned the nock global. It's
+  // not clear this was deliberate or is even helpful. This shim is
+  // included for backward compatibility.
+  cleanAll() {
+    cleanAll()
+    return module.exports
+  },
   load,
   loadDefs,
   define,
